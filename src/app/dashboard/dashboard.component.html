@@ -1,0 +1,17 @@
+<ul>
+  <li *ngFor="let employee of employees">
+    {{employee.FirstName}} {{employee.LastName}}
+  </li>
+</ul>
+
+<form [formGroup]="employeeForm" (ngSubmit)="onSubmit(employeeForm)" novalidate>
+   <label for="firstName">Firs tName</label>
+   <input placeholder="First Name" class="form-control" formControlName="firstName" >
+   <span *ngIf="!employeeForm.controls['firstName'].valid && employeeForm.controls['firstName'].touched">not valid</span>
+   <br>
+   <label for="lastName">Last Name</label>
+   <input placeholder="Last Name" class="form-control" formControlName="lastName" >
+   <span *ngIf="!employeeForm.controls['lastName'].valid && employeeForm.controls['lastName'].touched">not valid</span>
+   <br>
+   <button class="btn btn-primary" type="submit" >Save</button> 
+</form>
